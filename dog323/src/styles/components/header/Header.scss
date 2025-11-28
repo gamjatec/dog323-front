@@ -1,9 +1,4 @@
-@use '../base/index' as *;
-
-.app {
-  background-color: var(--primary-400);
-  height: 300vh;
-}
+@use '../../base/index' as *;
 
 #header-desktop {
   width: 100vw;
@@ -12,7 +7,9 @@
   backdrop-filter: blur(25px);
   position: fixed;
   top: 0;
+  @include flex(row, center, center);
   .header-wrap {
+    width: 100%;
     max-width: 1440px;
     padding: 0 80px;
     @include flex(row, space-between, center);

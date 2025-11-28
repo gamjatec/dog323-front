@@ -1,2 +1,6 @@
-@use './components/Header.scss';
-@use './components/BottomNav.scss';
+@use './components/header/Header.scss';
+@use './components/header/BottomNav.scss';
+@use './components/layout/MainLayout.scss';
+
+@use './components/home/HomePage.scss';
+@use './components/home/HomeSlider.scss';
