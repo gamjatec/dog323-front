@@ -1,0 +1,30 @@
+@use '../base/index' as *;
+
+#bottom-nav {
+  width: 100%;
+  padding: 20px 50px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(25px);
+  @include flex(row, space-between, center);
+  position: fixed;
+  bottom: 0;
+  li {
+    a {
+      @include flex(column, center, center);
+      gap: 4px;
+      color: var(--gray-800);
+      @include caption();
+      transition: color 0.2s;
+      svg {
+        color: var(--gray-300);
+        transition: color 0.2s;
+      }
+    }
+    &:hover a {
+      color: var(--primary-500);
+      svg {
+        color: var(--primary-500);
+      }
+    }
+  }
+}

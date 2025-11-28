@@ -1,0 +1,112 @@
+// Font style
+// ExtraBold = 800 / Bold = 700 / Regular = 400 / Light = 300
+
+// H1 랜딩 타이틀
+@mixin h1-style {
+  font-size: 28px;
+  font-weight: 800;
+  @media (min-width: 768px) {
+    font-size: 48px;
+  }
+}
+
+// H2 페이지 타이틀
+@mixin h2-style {
+  font-size: 24px;
+  font-weight: 800;
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
+}
+
+// H3 섹션 타이틀
+@mixin h3-style {
+  font-size: 20px;
+  font-weight: 800;
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+// H4 카드 타이틀
+@mixin h4-style {
+  font-size: 18px;
+  font-weight: 800;
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+}
+
+// Body-L 본문 큰 글씨
+@mixin body-l {
+  font-size: 14px;
+  font-weight: 800;
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+// Body-M 본문 기본
+@mixin body-m {
+  font-size: 12px;
+  font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+// Body-S 보조 텍스트
+@mixin body-s {
+  font-size: 10px;
+  font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+// Caption 레이블 / 태그
+@mixin caption {
+  font-size: 9px;
+  font-weight: 400;
+  @media (min-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+// Overline 카테고리 / 버튼 상단 라벨
+@mixin overline {
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  @media (min-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+
+// flex style
+@mixin flex ($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// 모바일
+@mixin mobile{
+    @media screen and (max-width: 768px){
+        @content;
+    }
+}
+// 태블릿
+@mixin tablet{
+    @media screen and (max-width: 1024px){
+        @content;
+    }
+}
+
+
+
+// button style
+
+// input style

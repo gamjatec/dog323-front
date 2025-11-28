@@ -1,0 +1,65 @@
+@use '../base/index' as *;
+
+.app {
+  background-color: var(--primary-400);
+  height: 300vh;
+}
+
+#header-desktop {
+  width: 100vw;
+  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(25px);
+  position: fixed;
+  top: 0;
+  .header-wrap {
+    max-width: 1440px;
+    padding: 0 80px;
+    @include flex(row, space-between, center);
+    @include tablet {
+      padding: 0 32px;
+    }
+    @include mobile {
+      padding: 0 20px;
+    }
+    img {
+      width: 71px;
+      cursor: pointer;
+      @include mobile {
+        width: 43px;
+      }
+    }
+    .gnb {
+      @include flex(row, space-between, center);
+      gap: 50px;
+      color: var(--gray-800);
+      @include body-l();
+      @include mobile {
+        display: none;
+      }
+      li {
+        a {
+          cursor: pointer;
+          transition: all 0.2s;
+          &:hover {
+            color: var(--primary-500);
+          }
+        }
+      }
+    }
+    .header-btn {
+      @include flex();
+      gap: 4px;
+      color: var(--gray-800);
+      @include body-l();
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        color: var(--primary-500);
+      }
+    }
+    .mypage {
+      display: none;
+    }
+  }
+}
