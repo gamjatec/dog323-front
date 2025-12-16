@@ -8,7 +8,7 @@ import slide03 from '../../../assets/images/slide03.png';
 import slide04 from '../../../assets/images/slide04.png';
 import { Icon } from "@iconify/react";
 
-const HomeSlider = () => {
+const HeroSlider = () => {
   const sliderRef = useRef(null);
   const progressBarRef = useRef(null);
 
@@ -72,7 +72,8 @@ const HomeSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
-    arrows: false
+    arrows: false,
+    pauseOnFocus: true
   };
 
   return (
@@ -107,4 +108,4 @@ const HomeSlider = () => {
   );
 };
 
-export default HomeSlider;
+export default HeroSlider;

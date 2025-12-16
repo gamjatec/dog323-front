@@ -1,0 +1,116 @@
+@use "../../base/index" as *;
+
+.chatdog-section {
+  padding: 85px 0;
+  @include mobile {
+    padding: 50px 0;
+  }
+  .chatdog-content {
+    padding: 0 80px;
+    max-width: 1440px;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 54px;
+    @include flex(row, center, center);
+    gap: 43px;
+    @include tablet {
+      width: 100%;
+      height: 40vh;
+      padding: 0 32px;
+    }
+    @include mobile {
+      padding: 0 20px;
+      height: 100%;
+      flex-direction: column-reverse;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .chatdog-img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      &.fade-in {
+        opacity: 1;
+      }
+      &.fade-out {
+        opacity: 0.3;
+      }
+    }
+    .chatdog-box {
+      width: 100%;
+      height: 100%;
+      @include flex(column, flex-start, flex-start);
+      gap: 20px;
+      @include mobile {
+        flex-direction: row;
+        height: 70px;
+        gap: 10px;
+      }
+      li {
+        flex: 1;
+        width: 100%;
+        min-width: 310px;
+        height: 100%;
+        border-radius: 40px;
+        padding: 0 40px;
+        @include flex(row, flex-start, center);
+        gap: 20px;
+        color: var(--gray-300);
+        background-color: var(--gray-100);
+        opacity: 1;
+        transition: background-color 0.7s ease, color 0.7s ease,
+        opacity 0.7s ease;
+        @include tablet {
+          min-width: 200px;
+          gap: 10px;
+          padding: 0 10px;
+          border-radius: 20px;
+        }
+        @include mobile {
+          min-width: auto;
+          justify-content: center;
+        }
+        &.color-on {
+          color: var(--secondary-900);
+          background-color: var(--secondary-100);
+          svg {
+            color: var(--secondary-900);
+          }
+        }
+        &.fade-in {
+          opacity: 1;
+        }
+        svg {
+          color: var(--gray-200);
+          transition: color 0.5s ease;
+          @include tablet {
+            width: 40px;
+          }
+          @include mobile {
+            display: none;
+          }
+        }
+        div {
+          color: inherit;
+          transition: color 0.5s ease;
+          @include flex(column, center, flex-start);
+          gap: 8px;
+          h3 {
+            @include h3-style();
+            @include mobile {
+              @include h4-style();
+            }
+          }
+          p {
+            @include body-m();
+            @include tablet {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

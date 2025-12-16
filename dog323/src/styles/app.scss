@@ -1,6 +1,15 @@
-@use './components/header/Header.scss';
-@use './components/header/BottomNav.scss';
+// ----- Layout -----
+@use './components/layout/Header.scss';
+@use './components/layout/Footer.scss';
+@use './components/layout/BottomNav.scss';
 @use './components/layout/MainLayout.scss';
 
+// ----- HomePage -----
 @use './components/home/HomePage.scss';
 @use './components/home/HomeSlider.scss';
+@use './components/home/HeroSection.scss';
+@use './components/home/WithMeSection.scss';
+@use './components/home/MbtiSection.scss';
+@use './components/home/ChatDogSection.scss';
+@use './components/home/ReviewSection.scss';
+@use './components/home/JoinSection.scss';

@@ -1,15 +1,10 @@
 @use '../../base/index' as *;
 
 .main-layout {
-  @include flex(column, center, center);
-  main {
-    width: 100%;
-    padding: 150px 80px 0px 80px;
-    @include tablet {
-      padding: 150px 32px 0px 32px;
-    }
-    @include mobile {
-      padding: 85px 20px 0px 20px;
-    }
+  padding-top: 150px;
+  overflow: hidden;
+  @include mobile {
+    padding-top: 85px;
+    padding-bottom: 93.5px;
   }
 }
