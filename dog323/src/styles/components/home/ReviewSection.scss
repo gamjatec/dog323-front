@@ -1,0 +1,92 @@
+@use "../../base/index" as *;
+
+.review-section {
+  padding: 85px 0;
+  @include mobile {
+    padding: 50px 0;
+  }
+  .slider-container {
+    margin-top: 60px;
+    pointer-events: auto !important;
+    width: 100%;
+    overflow: hidden;
+    @include mobile {
+      margin-top: 40px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .slider-track {
+      @include flex(row, flex-start, center);
+      gap: 50px;
+      padding-bottom: 30px;
+      animation: marquee 60s linear infinite;
+      width: calc((430px + 50px) * 20);
+      @include mobile {
+        padding: 0 30px;
+        padding-bottom: 30px;
+        gap: 30px;
+        animation: none;
+        width: max-content;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        animation: none !important;
+      }
+      .review-card {
+        width: 430px;
+        padding: 25px;
+        pointer-events: auto;
+        border-radius: 40px;
+        background-color: var(--gray-50);
+        display: flex !important;
+        flex-direction: column;
+        gap: 25px;
+        @include mobile {
+          width: 320px;
+        }
+        &.even {
+          transform: translateY(30px);
+        }
+        img {
+          width: 100%;
+          aspect-ratio: 5/3;
+          object-fit: cover;
+          border-radius: 30px;
+        }
+        .card-text {
+          @include flex(column, flex-start, flex-end);
+          gap: 17px;
+          padding: 0 10px;
+          h4 {
+            width: 100%;
+            @include h4-style();
+            color: var(--gray-700);
+            line-height: 30px;
+          }
+          p {
+            padding: 15px 20px;
+            @include flex();
+            gap: 5px;
+            color: var(--gray-600);
+            background-color: var(--white-color);
+            border-radius: 50px;
+            @include body-m();
+            span {
+              color: var(--primary-700);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * (360px + 20px) * 10));
+  }
+}
+

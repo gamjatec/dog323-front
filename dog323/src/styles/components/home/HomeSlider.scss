@@ -1,0 +1,48 @@
+@use '../../base/index' as *;
+
+.slider-container {
+  width: 100%;
+  position: relative;
+  .slick-arrow {
+    display: none;
+  }
+  .slide {
+    width: 100%;
+    // height: 100%;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .bottom-wrap {
+    width: 100%;
+    padding: 0 40px;
+    position: absolute;
+    bottom: 30px;
+    @include flex(row, center, center);
+    gap: 20px;
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 50px;
+      @include mobile {
+        display: none;
+      }
+      .progress {
+        height: 100%;
+        opacity: 0.5;
+        transition: width 0.1s linear;
+        border-radius: 50px;
+      }
+    }
+    .btn-wrap {
+      @include mobile {
+        display: none;
+      }
+      button {
+        background-color: transparent;
+        color: var(--primary-700);
+      }
+    }
+  }
+}

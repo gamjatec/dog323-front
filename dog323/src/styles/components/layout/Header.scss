@@ -1,20 +1,18 @@
-@use '../base/index' as *;
-
-.app {
-  background-color: var(--primary-400);
-  height: 300vh;
-}
+@use '../../base/index' as *;
 
 #header-desktop {
   width: 100vw;
   padding: 15px 0;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(25px);
   position: fixed;
   top: 0;
+  z-index: 1000;
+  @include flex(row, center, center);
   .header-wrap {
-    max-width: 1440px;
+    width: 100%;
     padding: 0 80px;
+    max-width: 1440px;
     @include flex(row, space-between, center);
     @include tablet {
       padding: 0 32px;
@@ -23,7 +21,7 @@
       padding: 0 20px;
     }
     img {
-      width: 71px;
+      width: 65px;
       cursor: pointer;
       @include mobile {
         width: 43px;
