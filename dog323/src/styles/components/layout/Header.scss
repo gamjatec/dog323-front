@@ -30,7 +30,6 @@
     .gnb {
       @include flex(row, space-between, center);
       gap: 50px;
-      color: var(--gray-800);
       @include body-l();
       @include mobile {
         display: none;
@@ -39,6 +38,10 @@
         a {
           cursor: pointer;
           transition: all 0.2s;
+          color: var(--gray-800);
+          &.active {
+            color: var(--primary-500);
+          }
           &:hover {
             color: var(--primary-500);
           }

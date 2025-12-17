@@ -2,7 +2,8 @@ import './styles/app.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import AuthLayout from "./components/layout/AuthLayout";
-import HomePage from './components/pages/Home/HomePage';
+import HomePage from "./pages/HomePage";
+import WithMePage from "./pages/WithMePage";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path='/' element={<HomePage />} />
+          <Route path='withme' element={<WithMePage />} />
         </Route>  
 
         <Route element={<AuthLayout />}>
