@@ -1,49 +1,33 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo.svg";
 import { Icon } from "@iconify/react";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const navItems = [
+    { name: "입양・분양", path: "/withme" },
+    { name: "실종・제보", path: "/findme" },
+    { name: "커뮤니티", path: "/community" },
+    { name: "멍BTI", path: "/mbti" },
+  ];
+
   return (
     <div id="header-desktop">
       <div className="header-wrap">
-        <img src={Logo} alt="로고" />
+        <img src={Logo} alt="로고" onClick={() => navigate("/")} />
 
         <ul className="gnb">
-          <li>
-            <NavLink
-              to="/withme"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              입양・분양
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/findme"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              실종・제보
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/community"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              커뮤니티
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/mbti"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              멍BTI
-            </NavLink>
-          </li>
+          {navItems.map((item) => (
+            <li key={item.path}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
         <div className="header-btn login">

@@ -2,17 +2,17 @@
 
 .footer {
   background-color: var(--primary-50);
+  padding: 120px 0px 100px 0px;
+  margin-top: 150px;
+  @include tablet {
+    padding: 120px 0px 100px 0px;
+  }
+  @include mobile {
+    padding: 70px 0px 30px 0px;
+  }
   .footer-wrap {
-    padding: 120px 80px 100px 80px;
-    max-width: 1440px;
-    margin: 0 auto;
+    @include layout();
     color: var(--primary-900);
-    @include tablet {
-      padding: 120px 32px 100px 32px;
-    }
-    @include mobile {
-      padding: 70px 20px 30px 20px;
-    }
     .footer-top {
       margin-bottom: 30px;
       @include flex(row, space-between, flex-start);

@@ -1,20 +1,15 @@
 @use "../../base/index" as *;
 
 .hero-section {
-  margin: 0 auto;
-  max-width: 1440px;
-  padding: 0 80px;
-  @include tablet {
-    padding: 0 32px;
-  }
-  @include mobile {
-    padding: 0 20px;
-  }
+  @include layout();
   width: 100%;
   @include flex(column, center, center);
   gap: 30px;
   padding-bottom: 30px;
   @include tablet {
+    gap: 25px;
+  }
+  @include mobile {
     gap: 25px;
   }
   .hero-top {
@@ -26,10 +21,17 @@
       @include flex(column, center, center);
       gap: 0;
     }
+    @include mobile {
+      @include flex(column, center, center);
+      gap: 0;
+    }
     .hero-left {
       width: 62%;
       height: 100%;
       @include tablet {
+        width: 100%;
+      }
+      @include mobile {
         width: 100%;
       }
     }
@@ -38,15 +40,15 @@
       height: 100%;
       @include flex(column, center, space-between);
       gap: 25px;
-      @media screen and (max-width: 1200px) {
-        gap: 15px;
-      }
-      @media screen and (max-width: 1100px) {
-        gap: 10px;
-      }
       @include tablet {
         width: 100%;
         padding-top: 25px;
+        gap: 20px;
+      }
+      @include mobile {
+        width: 100%;
+        padding-top: 25px;
+        gap: 15px;
       }
       .copy {
         color: var(--gray-800);
@@ -58,11 +60,16 @@
             font-size: 30px;
           }
           @include mobile {
+            text-align: center;
+            font-size: 30px;
             @include h2-style();
           }
           .mobile-break {
             display: block;
             @include tablet {
+              display: none;
+            }
+            @include mobile {
               display: none;
             }
           }
@@ -80,6 +87,8 @@
           font-size: inherit;
         }
         @include mobile {
+          text-align: center;
+          font-size: inherit;
           @include body-m();
         }
       }

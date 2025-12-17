@@ -10,16 +10,9 @@
   z-index: 1000;
   @include flex(row, center, center);
   .header-wrap {
+    @include layout();
     width: 100%;
-    padding: 0 80px;
-    max-width: 1440px;
     @include flex(row, space-between, center);
-    @include tablet {
-      padding: 0 32px;
-    }
-    @include mobile {
-      padding: 0 20px;
-    }
     img {
       width: 65px;
       cursor: pointer;

@@ -3,7 +3,7 @@
 
 // H1 랜딩 타이틀 (28px → 48px)
 @mixin h1-style {
-  font-size: clamp(28px, 3.4vw, 60px);
+  font-size: clamp(28px, 3.4vw, 56px);
   font-weight: 800;
 }
 
@@ -56,7 +56,6 @@
   letter-spacing: 0.03em;
 }
 
-
 // flex style
 @mixin flex($direction: row, $justify: center, $align: center) {
   display: flex;
@@ -65,9 +64,21 @@
   align-items: $align;
 }
 
+// 초과 데스크탑 전용
+@mixin over-desktop {
+  @media screen and (min-width: 1441px) {
+    @content;
+  }
+}
 // 데스크탑
 @mixin desktop {
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1025px) {
+    @content;
+  }
+}
+// 태블릿
+@mixin tablet {
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
     @content;
   }
 }
@@ -77,10 +88,20 @@
     @content;
   }
 }
-// 태블릿
-@mixin tablet {
-  @media screen and (max-width: 1024px) {
-    @content;
+
+// 부모 영역 레이아웃
+@mixin layout {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 80px;
+  @include over-desktop {
+    padding: 0 20px;
+  }
+  @include tablet {
+    padding: 0 32px;
+  }
+  @include mobile {
+    padding: 0 20px;
   }
 }
 

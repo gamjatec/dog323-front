@@ -4,15 +4,7 @@
   .section-title {
     width: 100%;
     @include flex(row, space-between, flex-end);
-    margin: 0 auto;
-    max-width: 1440px;
-    padding: 0 80px;
-    @include tablet {
-      padding: 0 32px;
-    }
-    @include mobile {
-      padding: 0 20px;
-    } 
+    @include layout();
     // ---- 입양 추천 강아지 섹션 / 후기 섹션 ----
     &.withme, &.review {
       .category {

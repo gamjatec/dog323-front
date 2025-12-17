@@ -1,29 +1,29 @@
 @use '../../base/index' as *;
 
 .mbti-section {
+  @include layout();
   padding: 85px 0;
   @include mobile {
     padding: 50px 0;
   }
   .mbti-banner {
+    @include layout();
     margin-top: 50px;
-    padding: 0 80px;
-    cursor: pointer;
-    @include tablet {
-      padding: 0 32px;
-    }
     @include mobile {
-      padding: 0 20px;
+      margin-top: 35px;
     }
+    cursor: pointer;
     .banner-wrap {
-      max-width: 1280px;
       padding: 0 50px;
-      margin: 0 auto;
       @include flex(row, center, center);
       gap: 40px;
       background-color: var(--primary-50);
       border-radius: 40px;
       @include tablet {
+        padding: 0 20px;
+        gap: 0px;
+      }
+      @include mobile {
         padding: 0 20px;
         gap: 0px;
       }
