@@ -1,16 +1,22 @@
 @use "../../base/index" as *;
 
 .withme {
-  @include layout();
   .page-menu {
     @include flex(column, center, center);
     gap: 25px;
+    @include mobile {
+      gap: 0;
+    }
     .menu-wrap {
+      @include layout();
       width: 100%;
-      @include flex(row, space-between, center);
+      @include flex(row, space-between, flex-start);
       .menu {
         @include flex();
         gap: 17px;
+        @include mobile {
+          gap: 0;
+        }
         li {
           padding: 15px 10px;
           @include h4-style();
@@ -33,67 +39,164 @@
         @include body-l();
         border-radius: 50px;
         transition: 0.2s;
+        @include mobile {
+          padding: 12px 15px;
+        }
         &:hover {
           background-color: var(--gray-600);
         }
       }
     }
-  }
-  .filter {
-    width: 100%;
-    padding: 30px;
-    background-color: var(--gray-50);
-    border-radius: 20px;
-    @include flex(row, space-between, center);
-    gap: 20px;
-    .select-wrap {
-      @include flex();
-      gap: 20px;
-      select {
-        width: 150px;
-        padding: 10px 18px;
-        background-color: var(--white-color);
-        border-radius: 10px;
-        border: 2px solid var(--gray-100);
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        @include body-s();
-        color: var(--gray-800);
-        font-family: inherit;
-        &:focus {
-          background-color: var(--gray-100);
-          outline: none;
+    .filter-wrap {
+      width: 100%;
+      max-width: 1440px;
+      padding: 0 80px;
+      @include over-desktop {
+        padding: 0 20px;
+      }
+      @include tablet {
+        padding: 0 32px;
+      }
+      @include mobile {
+        padding: 0px;
+      }
+      .filter {
+        margin: 0 auto;
+        padding: 30px;
+        background-color: var(--gray-50);
+        border-radius: 20px;
+        @include flex(row, space-between, center);
+        gap: 20px;
+        @include mobile {
+          padding: 30px 20px;
+          border-radius: 0;
+          flex-direction: column;
         }
-        &.selected {
+        .select-wrap {
+          @include flex();
+          gap: 20px;
+          @include tablet {
+            gap: 10px;
+          }
+          @include mobile {
+            width: 100%;
+          }
+          select {
+            width: 120px;
+            padding: 15px 18px;
+            background-color: var(--white-color);
+            border-radius: 50px;
+            border: 2px solid var(--gray-100);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            @include body-m();
+            color: var(--gray-600);
+            font-family: inherit;
+            text-align: center;
+            @include mobile {
+              width: 100%;
+              flex: 1;
+            }
+            &:focus {
+              background-color: var(--gray-100);
+              outline: none;
+            }
+            &.selected {
+              background-color: var(--white-color);
+              border-color: var(--gray-200);
+            }
+          }
+        }
+        .search-wrap {
+          width: 325px;
+          padding: 10px 20px;
+          border-radius: 50px;
           background-color: var(--white-color);
-          border-color: var(--gray-200);
+          border: 2px solid var(--gray-100);
+          @include flex(row, space-between, center);
+          gap: 10px;
+          transition: 0.2s;
+          @include mobile {
+            width: 100%;
+          }
+          &:focus-within {
+            border-color: var(--gray-200);
+          }
+          input {
+            width: 100%;
+            @include body-m();
+            color: var(--gray-800);
+            background: none;
+            border: none;
+            outline: none;
+            &::placeholder {
+              @include body-m();
+              color: var(--gray-300);
+            }
+          }
+          button {
+            background: none;
+            color: var(--gray-600);
+          }
         }
       }
     }
-    .search-wrap {
-      width: 325px;
-      padding: 10px 20px;
+  }
+  .empty {
+    width: 100%;
+    @include flex(column, center, center);
+    gap: 25px;
+    padding: 120px 0;
+    color: var(--gray-600);
+    h4 {
+      @include h4-style();
+    }
+    button {
+      background-color: var(--gray-100);
+      @include flex();
+      gap: 7px;
+      padding: 15px 25px;
       border-radius: 50px;
-      background-color: var(--white-color);
-      border: 2px solid var(--gray-200);
-      @include flex(row, space-between, center);
-      gap: 10px;
-      input {
-        width: 100%;
-        @include body-m();
-        color: var(--gray-800);
-        background: none;
-        border: none;
-        outline: none;
-        &::placeholder {
-          @include body-s();
-          color: var(--gray-400);
-        }
-      }
-      button {
-        background: none;
-        color: var(--gray-800);
+    }
+  }
+  .card-wrap {
+    @include layout();
+    width: 100%;
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 40px;
+    column-gap: 26px;
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 34px;
+      column-gap: 20px;
+    }
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 30px;
+      column-gap: 16px;
+    }
+  }
+  .load-more-btn {
+    margin: 0 auto;
+    margin-top: 67px;
+    width: 240px;
+    height: 60px;
+    background-color: var(--gray-800);
+    color: var(--white-color);
+    border-radius: 50px;
+    @include flex();
+    gap: 10px;
+    @include mobile {
+      margin-top: 45px;
+    }
+    svg {
+      font-size: 27px;
+      transform: rotate(90deg);
+      @include mobile {
+        font-size: 20px;
       }
     }
   }

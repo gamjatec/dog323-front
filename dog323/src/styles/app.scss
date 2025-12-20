@@ -4,6 +4,9 @@
 @use './components/layout/BottomNav.scss';
 @use './components/layout/MainLayout.scss';
 
+// ----- common -----
+@use './components/common/DogCard.scss';
+
 // ----- HomePage -----
 @use './components/home/HomePage.scss';
 @use './components/home/HomeSlider.scss';
