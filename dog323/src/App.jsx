@@ -4,10 +4,12 @@ import MainLayout from "./components/layout/MainLayout";
 import AuthLayout from "./components/layout/AuthLayout";
 import HomePage from "./pages/HomePage";
 import WithMePage from "./pages/WithMePage";
+import ScrollToTop from './components/layout/ScrollToTop';
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
           <Route path='/' element={<HomePage />} />

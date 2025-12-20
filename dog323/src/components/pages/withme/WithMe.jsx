@@ -47,6 +47,12 @@ const WithMe = () => {
     no: "중성화 X",
   };
 
+  // 성별 여부 텍스트로 매핑
+  const GENDER_LABEL = {
+    male: "남아",
+    famale: "여아",
+  };
+
   // 입양 데이터
   const dogInfo = Array.from({ length: 300 }, (_, i) => ({
     id: i,
@@ -55,7 +61,7 @@ const WithMe = () => {
     character: "사람을 좋아하고 순해요",
     age: "약 1살",
     neutralized: "yes",
-    gender: "여아",
+    gender: "famale",
   }));
 
   // 더보기 버튼
@@ -96,7 +102,7 @@ const WithMe = () => {
     return () => clearTimeout(timer);
   }, [keyword]);
 
-  // select 변경 시 visibleCount 초기화
+  // 필터 변경 시 visibleCount 초기화
   useEffect(() => {
     setVisibleCount(16);
   }, [active, region, neutralized, gender, keyword]);
@@ -209,7 +215,7 @@ const WithMe = () => {
               subtitle={dog.character}
               description={`${dog.age} | ${
                 NEUTRALIZED_LABEL[dog.neutralized]
-              } | ${dog.gender}`}
+              } | ${GENDER_LABEL[dog.gender]}`}
               showFavorite
             />
           ))}
