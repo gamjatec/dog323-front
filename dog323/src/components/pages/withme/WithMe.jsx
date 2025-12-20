@@ -4,8 +4,10 @@ import regions from "../../../data/regions.json";
 import DogCard from "../../common/DogCard";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import dogImg from "../../../assets/images/dog-img.jpg";
+import { useNavigate } from "react-router-dom";
 
 const WithMe = () => {
+  const navigate = useNavigate();
   const [active, setActive] = useState("전체");
   const menu = ["전체", "보호소", "개인 보호"];
 
@@ -18,6 +20,17 @@ const WithMe = () => {
 
   // 화면에 출력되는 카드 개수 state
   const [visibleCount, setVisibleCount] = useState(16);
+
+  // 테스트용 입양 데이터 ----- api 들어갈 부분 -----
+  const dogInfo = Array.from({ length: 300 }, (_, i) => ({
+    id: i,
+    type: "shelter",
+    name: `강아지${i + 1}`,
+    character: i % 2 === 0 ? "활발해요" : "순해요",
+    age: i % 3 === 0 ? "약 1살" : "약 3살",
+    neutralized: i % 2 === 0 ? "yes" : "no",
+    gender: i % 2 === 0 ? "famale" : "male",
+  }));
 
   // 탭 메뉴 매핑
   const MENU_TYPE_MAP = {
@@ -52,17 +65,6 @@ const WithMe = () => {
     male: "남아",
     famale: "여아",
   };
-
-  // 입양 데이터
-  const dogInfo = Array.from({ length: 300 }, (_, i) => ({
-    id: i,
-    type: "shelter",
-    name: "꿈이",
-    character: "사람을 좋아하고 순해요",
-    age: "약 1살",
-    neutralized: "yes",
-    gender: "famale",
-  }));
 
   // 더보기 버튼
   const handleLoadMore = () => {
@@ -217,6 +219,7 @@ const WithMe = () => {
                 NEUTRALIZED_LABEL[dog.neutralized]
               } | ${GENDER_LABEL[dog.gender]}`}
               showFavorite
+              onClick={() => navigate(`/withme/${dog.id}`, { state: { dog } })}
             />
           ))}
         </div>

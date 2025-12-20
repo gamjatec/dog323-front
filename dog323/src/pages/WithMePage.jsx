@@ -1,9 +1,9 @@
-import WithMe from "../components/pages/withme/WithMe";
+import { Outlet } from "react-router-dom";
 
 const WithMePage = () => {
   return (
     <div id="withme-page">
-      <WithMe />
+      <Outlet />
     </div>
   );
 };

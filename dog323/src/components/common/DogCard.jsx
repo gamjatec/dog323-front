@@ -9,11 +9,12 @@ const DogCard = ({
   subtitle,
   description,
   showFavorite = false,
+  onClick,
 }) => {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="dog-card">
+    <div className="dog-card" onClick={onClick}>
       <div className="img-wrap">
         <img src={image} alt={title} />
 
@@ -23,7 +24,10 @@ const DogCard = ({
           <button
             type="button"
             className="favorite-btn"
-            onClick={() => setActive((prev) => !prev)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setActive((prev) => !prev);
+            }}
           >
             <Icon
               icon={active ? "ph:heart-fill" : "ph:heart"}
