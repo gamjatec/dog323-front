@@ -89,6 +89,16 @@
   }
 }
 
+// 페이지 레이아웃
+@mixin page-layout {
+  overflow: hidden;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  @include mobile {
+    padding-top: 100px;
+  }
+}
+
 // 부모 영역 레이아웃
 @mixin layout {
   margin: 0 auto;

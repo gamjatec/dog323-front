@@ -1,6 +1,8 @@
 @use "../../base/index" as *;
 
-#homepage {
+.homepage {
+  @include page-layout();
+  background-color: var(--white-color);
   .section-title {
     width: 100%;
     @include flex(row, space-between, flex-end);

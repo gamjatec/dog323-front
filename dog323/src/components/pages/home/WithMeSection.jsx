@@ -1,8 +1,10 @@
 import { Icon } from "@iconify/react";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const WithMeSection = () => {
+  const navigate = useNavigate();
   const sliderRef = useRef(null);
 
   const pause = () => {
@@ -23,7 +25,7 @@ const WithMeSection = () => {
           </div>
           <h2>이런 강아지는 어때요?</h2>
         </div>
-        <button className="more-btn">
+        <button className="more-btn" onClick={() => navigate("/withme")}>
           <p>입양 전체 보기</p>
           <BsArrowRightCircleFill />
         </button>

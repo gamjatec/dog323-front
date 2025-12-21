@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const WithMePage = () => {
   return (
-    <div id="withme-page">
+    <div className="withme-page">
       <Outlet />
     </div>
   );

@@ -1,5 +1,6 @@
 import { useLocation, useParams } from "react-router-dom";
 import dogImg from "../../../assets/images/dog-img.jpg";
+import DogDetail from "../../common/DogDetail";
 
 const WithMeDetail = () => {
   const { id } = useParams();
@@ -23,13 +24,14 @@ const WithMeDetail = () => {
   if (!dog) return <p>강아지를 찾을 수 없습니다.</p>;
 
   return (
-    <div className="dog-detail">
-      <img src={dogImg} alt={dog.name} />
+    <div className="withme-detail">
+      {/* <img src={dogImg} alt={dog.name} />
       <h2>{dog.name}</h2>
       <p>성격: {dog.character}</p>
       <p>나이: {dog.age}</p>
       <p>중성화: {dog.neutralized}</p>
-      <p>성별: {dog.gender}</p>
+      <p>성별: {dog.gender}</p> */}
+      <DogDetail />
     </div>
   );
 };

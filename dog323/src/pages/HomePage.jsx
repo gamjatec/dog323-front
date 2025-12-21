@@ -7,7 +7,7 @@ import JoinSection from "../components/pages/home/JoinSection";
 
 const HomePage = () => {
   return (
-    <div id="homepage">
+    <div className="homepage">
       <HeroSection />
       <WithMeSection />
       <MbtiSection />

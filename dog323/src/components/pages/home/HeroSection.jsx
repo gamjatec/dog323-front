@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import HeroSlider from "./HeroSlider";
 import { Icon } from "@iconify/react";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="hero-section">
       <div className="hero-top">
@@ -17,8 +20,8 @@ const HeroSection = () => {
           </div>
           <h4>강아지들이 당신의 따뜻한 손길을 기다리고 있어요</h4>
           <div className="btn-wrap">
-            <button className="find-me">실종견 제보하기</button>
-            <button className="with-me">입양하러 가기</button>
+            <button className="find-me" onClick={() => navigate("/findme")}>실종견 제보하기</button>
+            <button className="with-me" onClick={() => navigate("/withme")}>입양하러 가기</button>
           </div>
         </div>
       </div>

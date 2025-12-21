@@ -1,0 +1,278 @@
+@use "../../base/index" as *;
+
+.dog-detail {
+  @include page-layout();
+  background-color: var(--gray-50);
+  @include mobile {
+    background-color: var(--white-color);
+  }
+  .dog-detail-wrap {
+    @include layout();
+    .dog-detail-box {
+      padding: 30px;
+      border-radius: 40px;
+      background-color: var(--white-color);
+      @include flex(row, flex-start, flex-start);
+      gap: 42px;
+      @include mobile {
+        gap: 35px;
+      }
+      @include mobile {
+        padding: 0px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+      }
+      .dog-img {
+        flex: 1;
+        border-radius: 40px;
+        overflow: hidden;
+        align-self: flex-start;
+      }
+      .dog-content {
+        flex: 1;
+        @include flex(column, flex-start, flex-start);
+        gap: 40px;
+        color: var(--gray-800);
+        @include tablet {
+          gap: 30px;
+        }
+        @include mobile {
+          gap: 30px;
+        }
+        .description {
+          width: 100%;
+          padding: 18px 20px;
+          border-radius: 20px;
+          @include flex(row, flex-start, center);
+          gap: 8px;
+          @include body-l();
+          &.withme {
+            background-color: var(--primary-50);
+            color: var(--primary-800);
+          }
+          &.findme {
+            background-color: var(--secondary-50);
+            color: var(--secondary-800);
+          }
+        }
+        .title {
+          @include flex(row, flex-start, center);
+          gap: 15px;
+          padding: 0 20px;
+          .badge {
+            padding: 10px 15px;
+            border-radius: 50px;
+            @include body-m();
+            &.private {
+              background-color: var(--primary-400);
+              color: var(--primary-900);
+            }
+          }
+          h3 {
+            @include h3-style();
+            color: var(--gray-800);
+          }
+        }
+        .info {
+          width: 100%;
+          height: 80px;
+          @include flex(row, space-between, flex-start);
+          li {
+            flex: 1;
+            height: 100%;
+            @include flex(column, flex-start, center);
+            gap: 20px;
+            border-right: 1px solid var(--gray-200);
+            align-self: stretch;
+            &:nth-last-child(1) {
+              border: none;
+            }
+            div {
+              @include flex(column, center, center);
+              gap: 5px;
+              p {
+                @include caption();
+              }
+            }
+            p {
+              @include body-m();
+              color: var(--gray-400);
+            }
+            h4 {
+              @include h4-style();
+            }
+          }
+        }
+        .contact {
+          padding: 0 20px;
+          @include flex(column, flex-start, flex-start);
+          gap: 30px;
+          @include mobile {
+            gap: 20px;
+          }
+          @include mobile {
+            gap: 20px;
+          }
+          li {
+            @include flex(row, flex-start, flex-start);
+            gap: 10px;
+            p {
+              width: 70px;
+              @include body-m();
+              color: var(--gray-400);
+            }
+            h5 {
+              @include body-l();
+            }
+          }
+        }
+        .message {
+          width: 100%;
+          height: 100%;
+          padding: 30px;
+          @include flex(column, flex-start, flex-start);
+          gap: 15px;
+          background-color: var(--gray-50);
+          border-radius: 20px;
+          p {
+            @include body-m();
+            color: var(--gray-400);
+          }
+          h5 {
+            @include body-l();
+            color: var(--gray-600);
+            line-height: 166.667%;
+          }
+        }
+      }
+    }
+
+    // ---------- 댓글창 -----------
+    .dog-detail-comment {
+      margin-top: 30px;
+      padding: 50px 40px;
+      border-radius: 40px;
+      background-color: var(--white-color);
+      @include mobile {
+        padding: 50px 0;
+        border-top: 30px solid var(--gray-50);
+      }
+      .num-write-wrap {
+        width: 100%;
+        @include flex(column, flex-start, flex-start);
+        gap: 25px;
+        .number {
+          padding: 0 20px;
+          @include flex(row, flex-start, flex-start);
+          gap: 14px;
+          color: var(--gray-800);
+          h4 {
+            @include h4-style();
+          }
+        }
+        .input-wrap {
+          width: 100%;
+          padding: 20px 25px;
+          border-radius: 20px;
+          background-color: var(--gray-50);
+          border: 2px solid var(--gray-50);
+          @include flex(row, space-between, center);
+          gap: 10px;
+          transition: 0.2s;
+          @include mobile {
+            padding: 10px 15px;
+          }
+          &:focus-within {
+            border-color: var(--gray-200);
+          }
+          input {
+            width: 100%;
+            @include body-l();
+            color: var(--gray-800);
+            background: none;
+            border: none;
+            outline: none;
+            &::placeholder {
+              @include body-l();
+              color: var(--gray-300);
+            }
+          }
+          button {
+            background: none;
+            color: var(--gray-600);
+            &:disabled {
+              opacity: 0.4;
+            }
+            svg {
+              font-size: 40px;
+              transform: rotate(-90deg);
+            }
+          }
+        }
+      }
+      .comment-list {
+        margin-top: 40px;
+        @include flex(column, flex-start, flex-start);
+        gap: 30px;
+        .comment {
+          position: relative;
+          width: 100%;
+          @include flex(row, space-between, center);
+          .content {
+            @include flex(row, flex-start, center);
+            gap: 20px;
+            img {
+              background-color: var(--gray-200);
+              width: 70px;
+              height: 70px;
+            }
+            .text {
+              .top {
+                @include flex(row, flex-start, center);
+                gap: 10px;
+                margin-bottom: 12px;
+                h5 {
+                  @include body-l();
+                  color: var(--gray-800);
+                }
+                p {
+                  @include body-s();
+                  color: var(--gray-400);
+                }
+              }
+              p {
+                @include body-m();
+                color: var(--gray-600);
+              }
+            }
+          }
+          button {
+            background: none;
+            outline: none;
+            color: var(--gray-400);
+          }
+          .add-btn {
+            position: absolute;
+            right: 0;
+            bottom: -80px;
+            z-index: 1;
+            background-color: var(--white-color);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            @include flex(column, center, center);
+            padding: 0 15px;
+            li {
+              cursor: pointer;
+              padding: 15px 10px;
+              @include body-s();
+              &:nth-child(1) {
+                border-bottom: 1px solid var(--gray-200);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

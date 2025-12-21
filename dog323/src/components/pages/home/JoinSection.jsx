@@ -1,6 +1,9 @@
 import { BsArrowRightCircleFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const JoinSection = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="join-section">
       <div className="head">
@@ -9,7 +12,7 @@ const JoinSection = () => {
             사지 말고 입양해요</h1>
       </div>
       <p>함께하는 입양 문화 지금 바로 DOG323에서.</p>
-      <button>입양하러 가기<BsArrowRightCircleFill /></button>
+      <button onClick={() => navigate("/withme")}>입양하러 가기<BsArrowRightCircleFill /></button>
     </div>
   );
 };

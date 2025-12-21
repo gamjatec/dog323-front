@@ -1,10 +1,7 @@
 @use '../../base/index' as *;
 
 .main-layout {
-  padding-top: 150px;
-  overflow: hidden;
   @include mobile {
-    padding-top: 85px;
     padding-bottom: 93.5px;
   }
 }

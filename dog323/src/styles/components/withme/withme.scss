@@ -1,6 +1,7 @@
 @use "../../base/index" as *;
 
 .withme {
+  @include page-layout();
   .page-menu {
     @include flex(column, center, center);
     gap: 25px;

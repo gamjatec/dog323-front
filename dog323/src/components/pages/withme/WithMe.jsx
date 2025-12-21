@@ -5,6 +5,11 @@ import DogCard from "../../common/DogCard";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import dogImg from "../../../assets/images/dog-img.jpg";
 import { useNavigate } from "react-router-dom";
+import {
+  DOG_TYPE_LABEL,
+  GENDER_LABEL,
+  NEUTRALIZED_LABEL,
+} from "../../../constants/dog";
 
 const WithMe = () => {
   const navigate = useNavigate();
@@ -29,7 +34,12 @@ const WithMe = () => {
     character: i % 2 === 0 ? "활발해요" : "순해요",
     age: i % 3 === 0 ? "약 1살" : "약 3살",
     neutralized: i % 2 === 0 ? "yes" : "no",
-    gender: i % 2 === 0 ? "famale" : "male",
+    gender: i % 2 === 0 ? "female" : "male",
+    region: "경기도 평택시 지산로 128",
+    email: "rlagptmd1021@naver.com",
+    message: `사람을 정말 좋아하는 순둥이에요.
+갑작스러운 유학으로 인해 함께하지 못하게 되어 마음이 무겁습니다.
+따뜻하게 품어주실 분을 기다립니다.`,
   }));
 
   // 탭 메뉴 매핑
@@ -43,27 +53,6 @@ const WithMe = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     console.log("검색어:", keyword);
-  };
-
-  // card badge 텍스트로 매핑
-  const DOG_TYPE_LABEL = {
-    private: "개인 보호",
-    shelter: "보호소",
-    missing: "실종",
-    report: "제보",
-    found: "찾음",
-  };
-
-  // 중성화 여부 텍스트로 매핑
-  const NEUTRALIZED_LABEL = {
-    yes: "중성화 O",
-    no: "중성화 X",
-  };
-
-  // 성별 여부 텍스트로 매핑
-  const GENDER_LABEL = {
-    male: "남아",
-    famale: "여아",
   };
 
   // 더보기 버튼
