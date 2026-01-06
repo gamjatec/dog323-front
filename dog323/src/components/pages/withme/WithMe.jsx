@@ -39,7 +39,8 @@ const WithMe = () => {
     email: "rlagptmd1021@naver.com",
     message: `사람을 정말 좋아하는 순둥이에요.
 갑작스러운 유학으로 인해 함께하지 못하게 되어 마음이 무겁습니다.
-따뜻하게 품어주실 분을 기다립니다.`,
+따뜻하게 품어주실 분을 기다립니다.
+`,
   }));
 
   // 탭 메뉴 매핑
@@ -114,7 +115,7 @@ const WithMe = () => {
             ))}
           </ul>
 
-          <button className="write-btn">
+          <button className="write-btn" onClick={() => navigate("registration")}>
             <Icon icon="fa6-solid:pen-to-square" width="17" height="17" />
             분양 신청
           </button>

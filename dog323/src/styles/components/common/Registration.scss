@@ -1,0 +1,41 @@
+@use '../../base/index' as *;
+
+.registration {
+  @include page-layout();
+  .wrap {
+    @include layout();
+    @include flex(column);
+    gap: 40px;
+    max-width: 700px;
+    padding: 0 20px;
+    .title {
+      width: 100%;
+      padding-bottom: 40px;
+      @include flex(column);
+      gap: 15px;
+      border-bottom: 1px solid var(--gray-100);
+      h3 {
+        @include h3-style();
+        color: var(--gray-800);
+      }
+      p {
+        @include body-m();
+        color: var(--gray-400);
+      }
+    }
+    form {
+      width: 100%;
+      @include flex(column);
+      gap: 30px;
+      label {
+        @include input-text();
+        &.error {
+          @include input-text-error();
+        }
+        select {
+          @include select();
+        }
+      }
+    }
+  }
+}

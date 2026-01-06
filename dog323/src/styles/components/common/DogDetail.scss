@@ -115,7 +115,7 @@
             gap: 20px;
           }
           li {
-            @include flex(row, flex-start, flex-start);
+            @include flex(row, flex-start, center);
             gap: 10px;
             p {
               width: 70px;
@@ -156,7 +156,8 @@
       background-color: var(--white-color);
       @include mobile {
         padding: 50px 0;
-        border-top: 30px solid var(--gray-50);
+        border-top: 2px solid var(--gray-100);
+        border-radius: 0;
       }
       .num-write-wrap {
         width: 100%;
@@ -164,7 +165,7 @@
         gap: 25px;
         .number {
           padding: 0 20px;
-          @include flex(row, flex-start, flex-start);
+          @include flex(row, flex-start, center);
           gap: 14px;
           color: var(--gray-800);
           h4 {

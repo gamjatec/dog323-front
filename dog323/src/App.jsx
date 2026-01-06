@@ -7,6 +7,7 @@ import WithMePage from "./pages/WithMePage";
 import ScrollToTop from './components/layout/ScrollToTop';
 import WithMe from './components/pages/withme/WithMe';
 import WithMeDetail from './components/pages/withme/WithMeDetail';
+import WithMeRegistration from './components/pages/withme/WithMeRegistration';
 
 // App.jsx = 사이트 지도
 // Page = 화면 껍데기 + Outlet
@@ -23,7 +24,8 @@ const App = () => {
           <Route path='/' element={<HomePage />} />
           <Route path='withme' element={<WithMePage />}>
             <Route index element={<WithMe />} />
-            <Route path=":id" element={<WithMeDetail />} />
+            <Route path='registration' element={<WithMeRegistration />} />
+            <Route path=':id' element={<WithMeDetail />} />
           </Route>
         </Route>
 
